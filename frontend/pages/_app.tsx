@@ -1,5 +1,5 @@
 import { AppShell } from '@mantine/core';
-import Navbar from './../modules/navbar/index.tsx';
+import Navbar from './../modules/navbar/index';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
