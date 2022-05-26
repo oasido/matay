@@ -2,13 +2,6 @@ import { Container, Center, SimpleGrid, Grid } from '@mantine/core';
 import ScheduleItem from '../modules/ScheduleItem';
 
 const Home = () => {
-  const gridOptions = {
-    xs: 2,
-    sm: 1.5,
-    md: 3,
-    lg: 2,
-  };
-
   return (
     <>
       <div className="my-10">
