@@ -1,4 +1,4 @@
-import { Container, Center, SimpleGrid, Grid } from '@mantine/core';
+import Link from 'next/link';
 import ScheduleItem from '../modules/ScheduleItem';
 
 const Home = () => {
