@@ -8,7 +8,7 @@ const Home = () => {
         <h1 className="text-center font-bold text-xl">matay</h1>
       </div>
       <div className="mx-auto text-center">
-        <h1 className="font-medium text-3xl">מה תרצו לקבוע?</h1>
+        <h1 className="font-medium text-2xl my-5">מה תרצו לקבוע?</h1>
 
         <div className="flex flex-wrap justify-center gap-2 mt-4">
           <ScheduleItem label="לאכול" icon="GiKnifeFork" />
