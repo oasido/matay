@@ -1,13 +1,32 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
+import rtlPlugin from 'stylis-plugin-rtl';
+import { ServerStyles, createStylesServer } from '@mantine/next';
 
-export default function Document() {
-  return (
-    <Html dir="rtl">
-      <Head />
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  );
+export default class _Document extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx);
+    const stylesServer = createStylesServer({ key: 'rtl', stylisPlugins: [rtlPlugin] });
+
+    return {
+      ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
+          <ServerStyles html={initialProps.html} server={stylesServer} />
+        </>
+      ),
+    };
+  }
+
+  render() {
+    return (
+      <Html dir="rtl" lang={this.props.locale}>
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
 }
