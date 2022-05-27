@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { Input, Textarea } from '@mantine/core';
 import SuggestionButton from './../../modules/SuggestionButton';
 import StepsButton from '../../modules/StepsButton';
+import WhatComponent from './../../modules/WhatComponent';
 
 const CreateEvent = () => {
   const router = useRouter();
@@ -27,6 +28,31 @@ const CreateEvent = () => {
     'קפה',
     'סלט',
   ];
+
+  const props = {
+    step,
+    setStep,
+    pageTitle,
+    setPageTitle,
+    inputTitle,
+    setInputTitle,
+    inputDesc,
+    setInputDesc,
+    handleStep,
+    suggestions,
+  };
+
+  const showComponentBasedOnStep = () => {
+    switch (step) {
+      case 0:
+        return <WhatComponent {...props} />;
+      // case 1:
+      //   return <WhenComponent {...props} />;
+      default:
+        break;
+    }
+  };
+
   return (
     <>
       <div className="my-10">
@@ -36,7 +62,8 @@ const CreateEvent = () => {
         <h1 className="font-medium text-2xl my-5">{pageTitle}</h1>
 
         <div className="mx-auto w-10/12 md:w-6/12 lg:w-5/12 xl:w-4/12">
-          {step === 0 ? (
+          {showComponentBasedOnStep()}
+          {/* {step === 0 ? (
             <div>
               <Input
                 size="lg"
@@ -65,7 +92,7 @@ const CreateEvent = () => {
                 onChange={(e) => setInputDesc(e.target.value)}
               />
             </div>
-          ) : null}
+          ) : null} */}
 
           <StepsButton label="הבא" onClick={() => setStep(step + 1)} color="default" />
 
