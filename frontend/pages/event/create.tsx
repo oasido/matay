@@ -14,6 +14,20 @@ const CreateEvent = () => {
   const [inputTitle, setInputTitle] = useState('');
   const [inputDesc, setInputDesc] = useState('');
 
+  const handleStep = (type) => {
+    switch (type) {
+      case 'next':
+        console.log(step);
+        step >= 0 && setStep(step + 1);
+        break;
+      case 'back':
+        console.log(step);
+        step > 0 && setStep(step - 1);
+      default:
+        break;
+    }
+  };
+
   // TODO: Implement different suggestions based on the type (from useRouter())
   const suggestions = [
     'ארוחה',
@@ -93,13 +107,12 @@ const CreateEvent = () => {
               />
             </div>
           ) : null} */}
-
-          <StepsButton label="הבא" onClick={() => setStep(step + 1)} color="default" />
-
-          {step > 0 ? (
-            <StepsButton label="חזור" onClick={() => setStep(step - 1)} color="gray" />
-          ) : null}
         </div>
+        <StepsButton label="הבא" color="default" onClick={() => handleStep('next')} />
+
+        {step > 0 ? (
+          <StepsButton label="חזור" color="gray" onClick={() => handleStep('back')} />
+        ) : null}
       </div>
     </>
   );
