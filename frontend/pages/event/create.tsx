@@ -4,6 +4,8 @@ import { Input, Textarea } from '@mantine/core';
 import SuggestionButton from './../../modules/SuggestionButton';
 import StepsButton from '../../modules/StepsButton';
 import WhatComponent from './../../modules/WhatComponent';
+import WhenComponent from './../../modules/WhenComponent';
+import WhereComponent from './../../modules/WhereComponent';
 
 const CreateEvent = () => {
   const router = useRouter();
