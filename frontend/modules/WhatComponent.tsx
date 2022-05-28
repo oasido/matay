@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { Input, Textarea } from '@mantine/core';
+import { Input, Textarea, Collapse } from '@mantine/core';
 import SuggestionButton from './SuggestionButton';
 import StepsButton from './StepsButton';
 
@@ -15,7 +15,8 @@ const WhatComponent = (props) => {
     inputDesc,
     setInputDesc,
     handleStep,
-    suggestions,
+    required,
+    setRequired,
   } = props;
 
   return (
@@ -27,8 +28,16 @@ const WhatComponent = (props) => {
             classNames={{ input: 'font-medium' }}
             placeholder="כותרת"
             value={inputTitle}
-            onChange={(e) => setInputTitle(e.target.value)}
+            onChange={(e) => {
+              setInputTitle(e.target.value);
+              setRequired(false);
+            }}
+            invalid={required.title}
           />
+          <Collapse className="text-right text-red-600" in={required.title}>
+            נא להזין את כותרת האירוע
+          </Collapse>
+
           <div className="flex flex-wrap">
             {suggestions.map((suggestion, i) => {
               return (
