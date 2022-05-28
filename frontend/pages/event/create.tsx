@@ -95,36 +95,6 @@ const CreateEvent = () => {
 
         <div className="mx-auto w-10/12 md:w-6/12 lg:w-5/12 xl:w-4/12">
           {showComponentBasedOnStep()}
-          {/* {step === 0 ? (
-            <div>
-              <Input
-                size="lg"
-                classNames={{ input: 'font-medium' }}
-                placeholder="כותרת"
-                value={inputTitle}
-                onChange={(e) => setInputTitle(e.target.value)}
-              />
-              <div className="flex flex-wrap">
-                {suggestions.map((suggestion, i) => {
-                  return (
-                    <SuggestionButton
-                      key={i}
-                      label={suggestion}
-                      onClick={(e) => setInputTitle(e.target.innerText)}
-                    />
-                  );
-                })}
-              </div>
-              <Textarea
-                size="lg"
-                className="mt-5"
-                classNames={{ input: 'font-medium' }}
-                placeholder="פירוט"
-                value={inputDesc}
-                onChange={(e) => setInputDesc(e.target.value)}
-              />
-            </div>
-          ) : null} */}
         </div>
 
         <StepsButton label="הבא" color="default" onClick={(e) => handleStep(e, 'next')} />
