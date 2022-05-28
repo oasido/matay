@@ -1,6 +1,12 @@
 import { Button } from '@mantine/core';
 
-const StepsButton = ({ color, label, onClick }) => {
+interface Props {
+  color: string;
+  label: string;
+  onClick: any;
+}
+
+const StepsButton = ({ color, label, onClick }: Props) => {
   return (
     <Button
       className="mt-5 mr-1"
