@@ -77,9 +77,14 @@ const CreateEvent = () => {
   const showComponentBasedOnStep = () => {
     switch (step) {
       case 0:
+        console.log(step);
         return <WhatComponent {...props} />;
-      // case 1:
-      //   return <WhenComponent {...props} />;
+      case 1:
+        console.log(step);
+        return <WhenComponent {...props} />;
+      case 2:
+        console.log(step);
+        return <WhereComponent {...props} />;
       default:
         break;
     }
