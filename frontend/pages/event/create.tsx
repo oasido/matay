@@ -14,14 +14,27 @@ const CreateEvent = () => {
   const [inputTitle, setInputTitle] = useState('');
   const [inputDesc, setInputDesc] = useState('');
 
-  const handleStep = (type) => {
+  const handleStep = (e, type) => {
     switch (type) {
       case 'next':
-        console.log(step);
-        step >= 0 && setStep(step + 1);
+        step === 0 && inputTitle && setStep(step + 1);
+        inputTitle === ''
+          ? setRequired((prev) => {
+              return { ...prev, title: true };
+            })
+          : setRequired((prev) => {
+              return { ...prev, title: false };
+            });
+
+        step === 1 && dates.length > 0 && setStep(step + 1);
+        step === 1 &&
+          dates.length === 0 &&
+          setRequired((prev) => {
+            return { ...prev, dates: true };
+          });
+
         break;
       case 'back':
-        console.log(step);
         step > 0 && setStep(step - 1);
       default:
         break;
@@ -108,10 +121,10 @@ const CreateEvent = () => {
             </div>
           ) : null} */}
         </div>
-        <StepsButton label="הבא" color="default" onClick={() => handleStep('next')} />
 
+        <StepsButton label="הבא" color="default" onClick={(e) => handleStep(e, 'next')} />
         {step > 0 ? (
-          <StepsButton label="חזור" color="gray" onClick={() => handleStep('back')} />
+          <StepsButton label="חזור" color="gray" onClick={(e) => handleStep(e, 'back')} />
         ) : null}
       </div>
     </>
