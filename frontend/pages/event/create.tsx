@@ -42,21 +42,6 @@ const CreateEvent = () => {
     }
   };
 
-  // TODO: Implement different suggestions based on the type (from useRouter())
-  const suggestions = [
-    'ארוחה',
-    'ארוחת בוקר',
-    'ארוחת צהריים',
-    'ארוחת ערב',
-    'סושי',
-    'פיצה',
-    'המבורגר',
-    'על האש',
-    'תה',
-    'קפה',
-    'סלט',
-  ];
-
   const props = {
     step,
     setStep,
