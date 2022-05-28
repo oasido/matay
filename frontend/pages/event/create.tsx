@@ -13,6 +13,12 @@ const CreateEvent = () => {
   const [step, setStep] = useState(0);
   const [inputTitle, setInputTitle] = useState('');
   const [inputDesc, setInputDesc] = useState('');
+  const [required, setRequired] = useState({
+    title: false,
+    dates: false,
+  });
+  const [dates, setDates] = useState<Date[]>([]);
+  const [location, setLocation] = useState('');
 
   const handleStep = (e, type) => {
     switch (type) {
