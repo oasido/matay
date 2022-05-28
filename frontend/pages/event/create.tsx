@@ -6,6 +6,7 @@ import WhenComponent from './../../modules/WhenComponent';
 import WhereComponent from './../../modules/WhereComponent';
 
 const CreateEvent = () => {
+  const [pageTitle, setPageTitle] = useState('מה תרצו לקבוע?');
   const router = useRouter();
   const type = router.query.type;
 
