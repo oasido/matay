@@ -39,16 +39,24 @@ const WhatComponent = (props) => {
           </Collapse>
 
           <div className="flex flex-wrap">
-            {suggestions.map((suggestion, i) => {
-              return (
-                <SuggestionButton
-                  key={i}
-                  label={suggestion}
-                  onClick={(e) => setInputTitle(e.target.innerText)}
-                />
-              );
-            })}
+            {currentSuggestions
+              ? currentSuggestions.map((suggestion, i) => {
+                  return (
+                    <SuggestionButton
+                      key={i}
+                      label={suggestion}
+                      onClick={(e) => {
+                        setInputTitle(e.target.innerText);
+                        setRequired((prev) => {
+                          return { ...prev, title: false };
+                        });
+                      }}
+                    />
+                  );
+                })
+              : null}
           </div>
+
           <Textarea
             size="lg"
             className="mt-5"
