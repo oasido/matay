@@ -85,6 +85,12 @@ const CreateEvent = () => {
     }
   };
 
+  useEffect(() => {
+    step === 0 && setPageTitle('מה תרצו לקבוע?');
+    step === 1 && setPageTitle('על איזה תאריכים חשבתם?');
+    step === 2 && setPageTitle('איפה?');
+  }, [step]);
+
   return (
     <>
       <div className="my-10">
