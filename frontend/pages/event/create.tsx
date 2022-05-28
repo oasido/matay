@@ -11,7 +11,6 @@ const CreateEvent = () => {
   const type = router.query.type;
 
   const [step, setStep] = useState(0);
-  const [pageTitle, setPageTitle] = useState('מה תרצו לקבוע?');
   const [inputTitle, setInputTitle] = useState('');
   const [inputDesc, setInputDesc] = useState('');
 
