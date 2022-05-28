@@ -1,7 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Input, Textarea } from '@mantine/core';
-import SuggestionButton from './../../modules/SuggestionButton';
 import StepsButton from '../../modules/StepsButton';
 import WhatComponent from './../../modules/WhatComponent';
 import WhenComponent from './../../modules/WhenComponent';
