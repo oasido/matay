@@ -60,14 +60,18 @@ const CreateEvent = () => {
   const props = {
     step,
     setStep,
-    pageTitle,
-    setPageTitle,
     inputTitle,
     setInputTitle,
     inputDesc,
     setInputDesc,
     handleStep,
-    suggestions,
+    required,
+    setRequired,
+    dates,
+    setDates,
+    setPageTitle,
+    location,
+    setLocation,
   };
 
   const showComponentBasedOnStep = () => {
