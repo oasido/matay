@@ -129,9 +129,26 @@ const CreateEvent = () => {
   };
 
   useEffect(() => {
-    step === 0 && setPageTitle('מה תרצו לקבוע?');
-    step === 1 && setPageTitle('על איזה תאריכים חשבתם?');
-    step === 2 && setPageTitle('איפה?');
+    step === 0 &&
+      setPageTitle({
+        title: 'מה תרצו לקבוע?',
+        desc: 'נא לבחור את הפעילות שתרצו לקבוע',
+      });
+    step === 1 &&
+      setPageTitle({
+        title: 'על איזה תאריכים חשבתם?',
+        desc: 'נא לבחור את התאריכים שבהם תרצו לקבוע את הפעילות',
+      });
+    step === 2 &&
+      setPageTitle({
+        title: 'איפה?',
+        desc: 'נא לבחור את המיקום שבו תרצו לקבוע את הפעילות',
+      });
+    step === 3 &&
+      setPageTitle({
+        title: 'ספר לנו מי אתה',
+        desc: 'כך נדע מי מגיע ומתי',
+      });
   }, [step]);
 
   return (
