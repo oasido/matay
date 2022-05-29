@@ -74,12 +74,25 @@ const CreateEvent = () => {
         });
   };
 
-        step === 1 && dates.length > 0 && setStep(step + 1);
-        step === 1 &&
-          dates.length === 0 &&
-          setRequired((prev) => {
-            return { ...prev, dates: true };
-          });
+  const handleStep = (e, action) => {
+    switch (action) {
+      case 'next':
+        // 1st step, "what"
+        step === 0 && !form.errors.inputTitle && !form.errors.inputDesc && setStep(step + 1);
+        handleFieldSetError('inputTitle');
+        handleFieldSetError('inputDesc');
+
+        // 2nd step, "when"
+        step === 1 && !form.errors.dates && setStep(step + 1);
+        step === 1 && handleFieldSetError('dates');
+
+        // 3rd step, "where"
+        step === 2 && setStep(step + 1);
+
+        // 4th step, "who"
+        handleFieldSetError('name');
+        handleFieldSetError('email');
+        step === 3 && Object.keys(form.errors).length === 0 && handleSubmit();
 
         break;
       case 'back':
