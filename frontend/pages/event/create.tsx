@@ -34,7 +34,18 @@ const eventSchema = z.object({
 });
 
 const CreateEvent = () => {
-  const [pageTitle, setPageTitle] = useState('מה תרצו לקבוע?');
+  const form = useForm({
+    schema: zodResolver(eventSchema),
+    initialValues: {
+      inputTitle: '',
+      inputDesc: '',
+      dates: [],
+      location: '',
+      name: '',
+      email: '',
+    },
+  });
+
   const router = useRouter();
   const type = router.query.type;
 
