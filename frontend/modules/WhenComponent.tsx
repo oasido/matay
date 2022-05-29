@@ -5,15 +5,19 @@ import { useEffect, useState } from 'react';
 import 'dayjs/locale/he';
 
 const WhenComponent = (props) => {
-  const { dates, setDates, required, setRequired } = props;
+  const { error, setError, form } = props;
   const { width } = useViewportSize();
 
   const handleCalendarSelection = (e) => {
-    setDates(e);
-    setRequired((prev) => {
+    form.setFieldValue('dates', e);
+    setError((prev) => {
       return { ...prev, dates: false };
     });
   };
+
+  useEffect(() => {
+    form.validateField('dates');
+  }, [form.values.dates]);
 
   return (
     <>

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const WhenComponent = (props) => {
-  const { location, setLocation } = props;
+  const { form } = props;
   const [results, setResults] = useState([]);
   let searchResults = [];
   const [debouncedLocation] = useDebouncedValue(location, 300);
@@ -45,18 +45,27 @@ const WhenComponent = (props) => {
   return (
     <>
       <div className="mb-24">
-        <MultiSelect
+        {/* <MultiSelect
           size="lg"
           classNames={{ input: 'font-medium' }}
           placeholder="(אופציונאלי) מיקום"
           searchable
           maxSelectedValues={1}
-          value={location}
-          onSearchChange={(e) => {
-            handleLocationInput(e);
-          }}
+          // onSearchChange={(e) => {
+          //   handleLocationInput(e);
+          // }}
           nothingFound="לא נמצאו תוצאות"
           data={results}
+          {...form.getInputProps('location')}
+        /> */}
+        <Input
+          size="lg"
+          classNames={{ input: 'font-medium' }}
+          placeholder="(אופציונאלי) מיקום"
+          {...form.getInputProps('location')}
+          onChange={(e) => {
+            form.setFieldValue('location', e.target.value);
+          }}
         />
       </div>
     </>

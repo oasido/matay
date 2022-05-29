@@ -4,19 +4,7 @@ import SuggestionButton from './SuggestionButton';
 import { useEffect } from 'react';
 
 const WhatComponent = (props) => {
-  const {
-    step,
-    setStep,
-    pageTitle,
-    setPageTitle,
-    inputTitle,
-    setInputTitle,
-    inputDesc,
-    setInputDesc,
-    handleStep,
-    required,
-    setRequired,
-  } = props;
+  const { step, error, setError, form } = props;
   const router = useRouter();
   const type = router.query.type;
 
@@ -64,6 +52,11 @@ const WhatComponent = (props) => {
   };
   const currentSuggestions = getSuggestions(type);
 
+  useEffect(() => {
+    form.validateField('inputTitle');
+    form.validateField('inputDesc');
+  }, [form.values.inputTitle, form.values.inputDesc]);
+
   return (
     <>
       {step === 0 ? (
@@ -72,12 +65,14 @@ const WhatComponent = (props) => {
             size="lg"
             classNames={{ input: 'font-medium' }}
             placeholder="כותרת"
-            value={inputTitle}
+            {...form.getInputProps('inputTitle')}
             onChange={(e) => {
-              setInputTitle(e.target.value);
-              setRequired(false);
+              form.setFieldValue('inputTitle', e.target.value);
+              setError((prev) => {
+                return { ...prev, inputTitle: { show: false, msg: null } };
+              });
             }}
-            invalid={required.title}
+            invalid={error.inputTitle.show}
           />
           <Collapse className="text-right text-red-600" in={required.title}>
             נא להזין את כותרת האירוע
@@ -91,9 +86,9 @@ const WhatComponent = (props) => {
                       key={i}
                       label={suggestion}
                       onClick={(e) => {
-                        setInputTitle(e.target.innerText);
-                        setRequired((prev) => {
-                          return { ...prev, title: false };
+                        form.setFieldValue('inputTitle', e.target.innerText);
+                        setError((prev) => {
+                          return { ...prev, inputTitle: { show: false, msg: null } };
                         });
                       }}
                     />
@@ -107,8 +102,14 @@ const WhatComponent = (props) => {
             className="mt-5"
             classNames={{ input: 'font-medium' }}
             placeholder="פירוט"
-            value={inputDesc}
-            onChange={(e) => setInputDesc(e.target.value)}
+            {...form.getInputProps('inputDesc')}
+            onChange={(e) => {
+              form.setFieldValue('inputDesc', e.target.value);
+              setError((prev) => {
+                return { ...prev, inputDesc: { show: false, msg: null } };
+              });
+            }}
+            error={''}
           />
         </div>
       ) : null}
