@@ -74,8 +74,9 @@ const WhatComponent = (props) => {
             }}
             invalid={error.inputTitle.show}
           />
-          <Collapse className="text-right text-red-600" in={required.title}>
-            נא להזין את כותרת האירוע
+
+          <Collapse className="text-right text-red-600" in={error.inputTitle.show}>
+            {form.errors.inputTitle}&nbsp;
           </Collapse>
 
           <div className="flex flex-wrap">
@@ -111,6 +112,9 @@ const WhatComponent = (props) => {
             }}
             error={''}
           />
+          <Collapse className="text-right text-red-600" in={error.inputDesc.show}>
+            {form.errors.inputDesc}&nbsp;
+          </Collapse>
         </div>
       ) : null}
     </>

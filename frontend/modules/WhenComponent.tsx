@@ -31,8 +31,8 @@ const WhenComponent = (props) => {
         />
       </Center>
       <Center>
-        <Collapse className="text-right text-red-600" in={required.dates}>
-          יש לבחור לפחות תאריך אחד
+        <Collapse className="text-right text-red-600" in={error.dates.show}>
+          {form.errors.dates}&nbsp;
         </Collapse>
       </Center>
     </>
