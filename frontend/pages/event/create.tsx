@@ -157,13 +157,18 @@ const CreateEvent = () => {
 
   return (
     <>
+      <ProgressBar {...props} />
       <div className="my-10">
-        <h1 className="text-center font-bold text-xl">matay</h1>
+        <Link href="/">
+          <div>
+            <Heading />
+          </div>
+        </Link>
       </div>
       <div className="mx-auto text-center">
-        <h1 className="font-medium text-2xl my-5">{pageTitle}</h1>
+        <h1 className="font-medium text-2xl my-5">{pageTitle.title}</h1>
 
-        <div className="mx-auto w-10/12 md:w-6/12 lg:w-5/12 xl:w-4/12">
+        <div className="mx-auto w-10/12 md:w-9/12 lg:w7/12 xl:w-6/12">
           {showComponentBasedOnStep()}
         </div>
 
