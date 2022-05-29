@@ -12,6 +12,26 @@ import { z } from 'zod';
 import { useForm, zodResolver } from '@mantine/form';
 import { Button } from '@mantine/core';
 
+const eventSchema = z.object({
+  inputTitle: z
+    .string()
+    .trim()
+    .min(1, { message: 'כותרת אינה יכולה להיות ריקה' })
+    .max(50, { message: 'כותרת אינה יכולה להיות יותר מ-50 תווים' }),
+  inputDesc: z
+    .string()
+    .min(0)
+    .max(280, { message: 'נשמע סיפור מעניין! אם אפשר לקצר ל-280 תווים זה יהיה נפלא.' })
+    .trim(),
+  dates: z.array(z.date()).nonempty({ message: 'יש לבחור לפחות תאריך אחד' }),
+  location: z.string().min(0).max(50, { message: 'מקסימום 50 תווים' }).trim().nullable(),
+  name: z
+    .string()
+    .trim()
+    .min(1, { message: 'שם אינו יכול להיות ריק' })
+    .max(50, { message: 'השם שלך ארוך מהרגיל!' }),
+  email: z.string().email({ message: 'כתובת אימייל לא תקינה' }).trim(),
+});
 
 const CreateEvent = () => {
   const [pageTitle, setPageTitle] = useState('מה תרצו לקבוע?');
