@@ -54,14 +54,14 @@ const CreateEvent = () => {
   const type = router.query.type;
 
   const [step, setStep] = useState(0);
-  const [inputTitle, setInputTitle] = useState('');
-  const [inputDesc, setInputDesc] = useState('');
-  const [required, setRequired] = useState({
-    title: false,
-    dates: false,
+
+  const [error, setError] = useState({
+    inputTitle: { show: false, msg: form.errors.inputTitle },
+    inputDesc: { show: false, msg: form.errors.inputDesc },
+    dates: { show: false, msg: form.errors.dates },
+    name: { show: false, msg: form.errors.name },
+    email: { show: false, msg: form.errors.email },
   });
-  const [dates, setDates] = useState<Date[]>([]);
-  const [location, setLocation] = useState('');
 
   const handleStep = (e, type) => {
     switch (type) {
