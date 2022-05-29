@@ -151,6 +151,10 @@ const CreateEvent = () => {
       });
   }, [step]);
 
+  const handleSubmit = () => {
+    console.log(form.values);
+  };
+
   return (
     <>
       <div className="my-10">
