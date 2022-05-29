@@ -24,10 +24,12 @@ const WhenComponent = (props) => {
       <Center>
         <Calendar
           multiple
-          value={dates}
           amountOfMonths={width > 665 ? 2 : 1}
-          onChange={(e) => handleCalendarSelection(e)}
           locale="he"
+          firstDayOfWeek="sunday"
+          minDate={new Date()}
+          {...form.getInputProps('dates')}
+          onChange={(e) => handleCalendarSelection(e)}
         />
       </Center>
       <Center>
