@@ -2,7 +2,6 @@ import { Input, MultiSelect, Text } from '@mantine/core';
 import { useDebouncedValue } from '@mantine/hooks';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { GiFalloutShelter } from 'react-icons/gi';
 
 const WhenComponent = (props) => {
   const { location, setLocation } = props;

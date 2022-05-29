@@ -1,9 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import Heading from './../../modules/Heading';
 import StepsButton from '../../modules/StepsButton';
+import ProgressBar from './../../modules/ProgressBar';
 import WhatComponent from './../../modules/WhatComponent';
 import WhenComponent from './../../modules/WhenComponent';
 import WhereComponent from './../../modules/WhereComponent';
+import WhoComponent from '../../modules/WhoComponent';
+import { z } from 'zod';
+import { useForm, zodResolver } from '@mantine/form';
+import { Button } from '@mantine/core';
+
 
 const CreateEvent = () => {
   const [pageTitle, setPageTitle] = useState('מה תרצו לקבוע?');

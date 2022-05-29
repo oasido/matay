@@ -1,8 +1,7 @@
-import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { Input, Textarea, Collapse } from '@mantine/core';
 import SuggestionButton from './SuggestionButton';
-import StepsButton from './StepsButton';
+import { useEffect } from 'react';
 
 const WhatComponent = (props) => {
   const {

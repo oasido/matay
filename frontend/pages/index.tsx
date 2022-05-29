@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import ScheduleItem from '../modules/ScheduleItem';
+import ScheduleItem from './../modules/ScheduleItem';
+import ProgressBar from './../modules/ProgressBar';
+import Heading from './../modules/Heading';
 
 const Home = () => {
   return (
