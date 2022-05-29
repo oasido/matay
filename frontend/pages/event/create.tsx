@@ -46,6 +46,10 @@ const CreateEvent = () => {
     },
   });
 
+  const [pageTitle, setPageTitle] = useState({
+    title: 'מה תרצו לקבוע?',
+    desc: 'נא לבחור את הפעילות שתרצו לקבוע',
+  });
   const router = useRouter();
   const type = router.query.type;
 
