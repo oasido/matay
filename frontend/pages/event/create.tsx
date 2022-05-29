@@ -63,17 +63,16 @@ const CreateEvent = () => {
     email: { show: false, msg: form.errors.email },
   });
 
-  const handleStep = (e, type) => {
-    switch (type) {
-      case 'next':
-        step === 0 && inputTitle && setStep(step + 1);
-        inputTitle === ''
-          ? setRequired((prev) => {
-              return { ...prev, title: true };
-            })
-          : setRequired((prev) => {
-              return { ...prev, title: false };
-            });
+  const handleFieldSetError = (field) => {
+    form.errors[field]
+      ? setError((prev) => {
+          console.log(form.errors[field]);
+          return { ...prev, [field]: { show: true, msg: form.errors[field] } };
+        })
+      : setError((prev) => {
+          return { ...prev, [field]: { show: false, msg: null } };
+        });
+  };
 
         step === 1 && dates.length > 0 && setStep(step + 1);
         step === 1 &&
