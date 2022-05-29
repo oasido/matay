@@ -9,38 +9,33 @@ const WhenComponent = (props) => {
   let searchResults = [];
   const [debouncedLocation] = useDebouncedValue(location, 300);
 
-  const handleLocationInput = (e) => {
-    setLocation(e);
-  };
+  // const handleLocationInput = (e) => {
+  //   setLocation(e);
+  // };
 
-  const handleSearch = async () => {
-    const options = {
-      method: 'GET',
-      url: 'https://trueway-places.p.rapidapi.com/FindPlaceByText',
-      params: { text: debouncedLocation, language: 'he' },
-      headers: {
-        'X-RapidAPI-Host': 'trueway-places.p.rapidapi.com',
-        'X-RapidAPI-Key': '5d184f4bebmsh6418304ef432175p111c0ejsn7614b9380f74',
-      },
-    };
+  // const handleSearch = async () => {
+  //   const options = {
+  //     method: 'GET',
+  //     url: 'https://trueway-places.p.rapidapi.com/FindPlaceByText',
+  //     params: { text: debouncedLocation, language: 'he' },
+  //     headers: {
+  //       'X-RapidAPI-Host': 'trueway-places.p.rapidapi.com',
+  //       'X-RapidAPI-Key': '5d184f4bebmsh6418304ef432175p111c0ejsn7614b9380f74',
+  //     },
+  //   };
 
-    axios.request(options).then((response) => {
-      response.data.results &&
-        response.data.results.forEach((result) => {
-          searchResults.push(result.address);
-        });
-      setResults(searchResults);
-    });
-    // .catch(function (error) {
-    //   console.error(error);
-    // });
-  };
+  //   axios.request(options).then((response) => {
+  //     response.data.results &&
+  //       response.data.results.forEach((result) => {
+  //         searchResults.push(result.address);
+  //       });
+  //     setResults(searchResults);
+  //   });
+  // };
 
-  useEffect(() => {
-    location && handleSearch();
-  }, [debouncedLocation]);
-
-  console.log(results);
+  // useEffect(() => {
+  //   location && handleSearch();
+  // }, [debouncedLocation]);
 
   return (
     <>
