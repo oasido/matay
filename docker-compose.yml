@@ -11,3 +11,13 @@ services:
       - ./pages:/app/pages
       - ./public:/app/public
       - ./styles:/app/styles
+
+  db:
+    image: mongo:5.0.8-focal
+    ports:
+      - 27018:27017
+    volumes:
+      - matay-db:/data/db
+
+volumes:
+  matay-db: {}
