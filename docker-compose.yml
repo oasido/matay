@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  app:
+    image: matay-app
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - ./modules:/app/modules
+      - ./pages:/app/pages
+      - ./public:/app/public
+      - ./styles:/app/styles
