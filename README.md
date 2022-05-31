@@ -1,1 +1,3 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# (WIP) Matay
+
+Matay helps you find the most fitting date and time for your next event.
