@@ -6,11 +6,15 @@ services:
     build: .
     ports:
       - 3000:3000
+    depends_on:
+      - db
     volumes:
       - ./modules:/app/modules
       - ./pages:/app/pages
       - ./public:/app/public
       - ./styles:/app/styles
+      - ./lib:/app/lib
+      - ./models:/app/models
 
   db:
     image: mongo:5.0.8-focal
