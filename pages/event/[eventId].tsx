@@ -73,6 +73,13 @@ export const getServerSideProps = async ({ query, res }) => {
 
   const eventData = stringifyEvent(event);
 
+  if (eventData === 'EventNotFound') {
+    res.statusCode = 301;
+    res.setHeader('location', '/');
+    res.end();
+    return { props: { event: eventData } };
+  }
+
   return {
     props: {
       event: eventData,
