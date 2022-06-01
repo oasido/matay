@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { MdSchedule } from 'react-icons/md';
 
-const Heading = () => {
+const Navbar = () => {
   return (
     <Link href="/">
       <div className="bg-white p-2 drop-shadow-md text-right">
@@ -14,4 +14,4 @@ const Heading = () => {
   );
 };
 
-export default Heading;
+export default Navbar;
