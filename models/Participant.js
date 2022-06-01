@@ -9,10 +9,13 @@ const Participant = new Schema({
     default: () => nanoid(15),
   },
 
-  dates: [
+  eventId: { type: String, required: true },
+
+  when: [
     {
-      availability: { type: String, required: [true, 'Missing OK/NO/MAYBE'] },
+      availability: { type: Number, required: [true, 'Missing number 1-3'] },
       date: { type: Date, required: [true, 'Please provide at least 1 date'] },
+      time: { type: String, required: [true, 'Time is missing'] },
     },
   ],
 
