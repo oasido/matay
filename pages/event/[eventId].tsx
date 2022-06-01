@@ -2,8 +2,7 @@ import { useRouter } from 'next/router';
 import dbConnect from './../../lib/dbConnect';
 import Event from './../../models/Event';
 import Participant from './../../models/Participant';
-import Link from 'next/link';
-import Heading from './../../modules/Heading';
+import Navbar from '../../modules/Navbar';
 import BottomMenu from './../../modules/eventId/BottomMenu';
 import Hr from './../../modules/eventId/Hr';
 import EventHeader from './../../modules/eventId/EventInformation/EventHeader';
@@ -31,7 +30,7 @@ const EventDetails = ({ event }) => {
 
       <div className="site-width mx-auto">
         <div className="border-2 mt-4 min-h-[100vh]">
-          <EventHeader eventData={eventData} />
+          <Header eventData={eventData} />
           <div className="mx-10">
             <What eventData={eventData} />
             <Hr />
