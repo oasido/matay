@@ -66,7 +66,6 @@ const CreateEvent = () => {
   const handleFieldSetError = (field) => {
     form.errors[field]
       ? setError((prev) => {
-          console.log(form.errors[field]);
           return { ...prev, [field]: { show: true, msg: form.errors[field] } };
         })
       : setError((prev) => {
