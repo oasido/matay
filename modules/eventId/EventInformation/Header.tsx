@@ -1,8 +1,7 @@
-import { Title, Box, Text } from '@mantine/core';
-import { BsInfoCircle } from 'react-icons/bs';
+import { Title, Box } from '@mantine/core';
 import { GoLocation } from 'react-icons/go';
 
-const EventHeader = ({ eventData }) => {
+const Header = ({ eventData }) => {
   return (
     <>
       <div className="bg-sky-500 rounded-md mx-2 my-2 pt-20 pb-4 text-center text-white">
@@ -29,4 +28,4 @@ const EventHeader = ({ eventData }) => {
   );
 };
 
-export default EventHeader;
+export default Header;
