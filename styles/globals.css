@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.site-width {
+  @apply w-[98%] md:w-9/12 lg:w-7/12 xl:w-6/12;
+}
