@@ -156,14 +156,8 @@ const CreateEvent = () => {
 
   return (
     <>
+      <Heading />
       <ProgressBar {...props} />
-      <div className="my-10">
-        <Link href="/">
-          <div>
-            <Heading />
-          </div>
-        </Link>
-      </div>
       <div className="mx-auto text-center">
         <h1 className="font-medium text-2xl my-5">{pageTitle.title}</h1>
 
