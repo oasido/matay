@@ -1,8 +1,14 @@
 import { useRouter } from 'next/router';
 import dbConnect from './../../lib/dbConnect';
 import Event from './../../models/Event';
+import Participant from './../../models/Participant';
 import Link from 'next/link';
 import Heading from './../../modules/Heading';
+import BottomMenu from './../../modules/eventId/BottomMenu';
+import Hr from './../../modules/eventId/Hr';
+import EventHeader from './../../modules/eventId/EventInformation/EventHeader';
+import What from './../../modules/eventId/EventInformation/What';
+import Who from './../../modules/eventId/EventInformation/Who';
 
 const EventDetails = ({ event }) => {
   const router = useRouter();
