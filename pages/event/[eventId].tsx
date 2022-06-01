@@ -27,28 +27,18 @@ const EventDetails = ({ event }) => {
 
   return (
     <>
-      <div className="my-10">
-        <Link href="/">
-          <div>
-            <Heading />
-          </div>
-        </Link>
-      </div>
-      <div className="mx-auto text-center">
-        <h1 className="font-medium text-2xl mt-5">
-          {eventData ? eventData.title : 'פגישה לא נמצאה'}
-        </h1>
-        <h2 className="text-xl mb-5">
-          {eventData ? (
-            eventData.description
-          ) : (
-            <p>שגיאה 404, אנחנו לא יודעים על הפגישה הזאת, בנתיים.</p>
-          )}
-        </h2>
+      <Heading />
 
-        <div className="mx-auto w-10/12 md:w-9/12 lg:w7/12 xl:w-6/12">
-          {/* // add the component here */}
-          <p>{eventId}</p>
+      <div className="site-width mx-auto">
+        <div className="border-2 mt-4 min-h-[100vh]">
+          <EventHeader eventData={eventData} />
+          <div className="mx-10">
+            <What eventData={eventData} />
+            <Hr />
+            <Who participants={[1, 2]} />
+            <Hr />
+            <BottomMenu />
+          </div>
         </div>
       </div>
     </>
