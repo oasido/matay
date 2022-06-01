@@ -45,7 +45,7 @@ const EventDetails = ({ event }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async ({ query, res }) => {
   await dbConnect();
 
   // Working CREATE
@@ -60,7 +60,8 @@ export const getServerSideProps = async (context) => {
   //   },
   // });
 
-  const event = await Event.findById(context.query.eventId);
+
+  const event = await Event.findById(query.eventId);
 
   const stringifyEvent = (event) => {
     if (event) {
