@@ -1,13 +1,12 @@
-import { useRouter } from 'next/router';
 import dbConnect from './../../lib/dbConnect';
 import Event from './../../models/Event';
 import Participant from './../../models/Participant';
 import Navbar from '../../modules/Navbar';
 import BottomMenu from './../../modules/eventId/BottomMenu';
-import Hr from './../../modules/eventId/Hr';
-import EventHeader from './../../modules/eventId/EventInformation/EventHeader';
-import What from './../../modules/eventId/EventInformation/What';
-import Who from './../../modules/eventId/EventInformation/Who';
+import Header from '../../modules/eventId/EventInformation/Header';
+import SpecifyAvailability from './../../modules/eventId/SpecifyAvailability';
+import EventInformation from '../../modules/eventId/EventInformation';
+import { useState } from 'react';
 
 const EventDetails = ({ event }) => {
   const [specifyStep, setSpecifyStep] = useState(0);
