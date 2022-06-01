@@ -10,8 +10,7 @@ import What from './../../modules/eventId/EventInformation/What';
 import Who from './../../modules/eventId/EventInformation/Who';
 
 const EventDetails = ({ event }) => {
-  const router = useRouter();
-  const { eventId } = router.query;
+  const [specifyStep, setSpecifyStep] = useState(0);
 
   const parseEvent = (event) => {
     try {
@@ -26,17 +25,15 @@ const EventDetails = ({ event }) => {
 
   return (
     <>
-      <Heading />
+      <Navbar />
 
       <div className="site-width mx-auto">
         <div className="border-2 mt-4 min-h-[100vh]">
           <Header eventData={eventData} />
           <div className="mx-10">
-            <What eventData={eventData} />
-            <Hr />
-            <Who participants={[1, 2]} />
-            <Hr />
-            <BottomMenu />
+            {specifyStep === 0 && <EventInformation eventData={eventData} />}
+            {specifyStep === 1 && <SpecifyAvailability eventData={eventData} />}
+            <BottomMenu specifyStep={specifyStep} setSpecifyStep={setSpecifyStep} />
           </div>
         </div>
       </div>
