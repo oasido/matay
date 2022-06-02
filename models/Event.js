@@ -8,6 +8,7 @@ const Event = new Schema({
     type: String,
     default: () => nanoid(15),
   },
+  type: { type: String, required: true },
   title: {
     type: String,
     required: [true, 'Please provide a title.'],
