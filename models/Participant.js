@@ -4,11 +4,6 @@ import { nanoid } from 'nanoid';
 const { Schema } = mongoose;
 
 const Participant = new Schema({
-  _id: {
-    type: String,
-    default: () => nanoid(15),
-  },
-
   eventId: { type: String, required: true },
 
   when: [
