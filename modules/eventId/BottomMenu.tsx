@@ -44,7 +44,14 @@ const BottomMenu = (props: Props) => {
         setSpecifyStep(2);
         break;
       case 2:
-        // saveAvailability();
+        form.validate();
+        saveAvailability(availability);
+
+        console.log(form.values);
+
+        Object.keys(form.errors).length === 0 && setSpecifyStep(3);
+
+      default:
         break;
     }
   };
