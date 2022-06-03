@@ -23,6 +23,16 @@ const registerParticipant = async (req, res) => {
 
     const when = combineAvailability(event.dates);
 
+    const participant = await Participant.create({
+      eventId,
+      when,
+      createdBy: {
+        name,
+        email,
+      },
+    });
+
+    res.send(event);
   } catch (error) {
     console.error(error);
     res.send(error.msg);
