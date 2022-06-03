@@ -36,13 +36,15 @@ const EventDetails = ({ event }) => {
 
   const [specifyStep, setSpecifyStep] = useState(0);
 
-  const parseEvent = (event) => {
+  const parseModel = (model: string) => {
     try {
-      return JSON.parse(event);
+      return JSON.parse(model);
     } catch (error) {
       return null;
     }
   };
+
+  const eventData = parseModel(event);
 
   const [availability, setAvailability] = useState(() => {
     const initialArray = [];
@@ -90,17 +92,17 @@ export const getServerSideProps = async ({ query, res }) => {
 
   const event = await Event.findById(query.eventId);
 
-  const stringifyEvent = (event) => {
-    if (event) {
-      return JSON.stringify(event);
+  const stringifyModel = (model: object | null) => {
+    if (model) {
+      return JSON.stringify(model);
     } else {
-      return 'EventNotFound';
+      return 'NotFound';
     }
   };
 
-  const eventData = stringifyEvent(event);
+  const eventData = stringifyModel(event);
 
-  if (eventData === 'EventNotFound') {
+  if (eventData === 'NotFound') {
     res.statusCode = 301;
     res.setHeader('location', '/');
     res.end();
