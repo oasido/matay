@@ -12,8 +12,9 @@ interface Props {
   form: any;
 }
 
-const BottomMenu = ({ specifyStep, setSpecifyStep }: Props) => {
-  const handleClick = (step) => {
+const BottomMenu = (props: Props) => {
+  const { specifyStep, setSpecifyStep, availability, handleFieldSetError, form } = props;
+
     switch (step) {
       case 0:
         setSpecifyStep(1);
