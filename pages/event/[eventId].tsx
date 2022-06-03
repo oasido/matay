@@ -28,6 +28,12 @@ const EventDetails = ({ event }) => {
       email: '',
     },
   });
+
+  const [error, setError] = useState({
+    name: { show: false, msg: form.errors.name },
+    email: { show: false, msg: form.errors.email },
+  });
+
   const [specifyStep, setSpecifyStep] = useState(0);
 
   const parseEvent = (event) => {
