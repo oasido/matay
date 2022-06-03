@@ -29,6 +29,12 @@ const BottomMenu = (props: Props) => {
       email,
     });
   };
+
+  useEffect(() => {
+    form.validateField('name');
+    form.validateField('email');
+  }, [form.values.name, form.values.email]);
+
     switch (step) {
       case 0:
         setSpecifyStep(1);
