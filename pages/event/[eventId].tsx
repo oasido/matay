@@ -46,6 +46,8 @@ const EventDetails = ({ event }) => {
 
   const eventData = parseModel(event);
 
+  const dates = ['10-10-22', '11-11-23', '12-1-24', '22-22-22'];
+
   const [availability, setAvailability] = useState(() => {
     const initialArray = [];
     dates.forEach((date) => {
