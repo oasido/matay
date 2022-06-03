@@ -1,7 +1,9 @@
 import { Title, Box } from '@mantine/core';
 import { GoLocation } from 'react-icons/go';
 
-const Header = ({ eventData }) => {
+const Header = (props) => {
+  const { eventData } = props;
+
   return (
     <>
       <div className="bg-sky-500 rounded-md mx-2 my-2 pt-20 pb-4 text-center text-white">
