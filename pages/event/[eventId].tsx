@@ -1,12 +1,16 @@
-import dbConnect from './../../lib/dbConnect';
-import Event from './../../models/Event';
-import Participant from './../../models/Participant';
+import dbConnect from '../../lib/dbConnect';
+import Event from '../../models/Event';
+import Participant from '../../models/Participant';
 import Logo from '../../modules/Logo';
-import BottomMenu from './../../modules/eventId/BottomMenu';
+import BottomMenu from '../../modules/eventId/BottomMenu';
 import Header from '../../modules/eventId/EventInformation/Header';
-import SpecifyAvailability from './../../modules/eventId/SpecifyAvailability';
+import SpecifyAvailability from '../../modules/eventId/SpecifyAvailability';
+import WhoResponded from '../../modules/eventId/SpecifyAvailability/WhoResponded';
 import EventInformation from '../../modules/eventId/EventInformation';
 import { useState } from 'react';
+import { z } from 'zod';
+import { useForm, zodResolver } from '@mantine/form';
+
 
 const EventDetails = ({ event }) => {
   const [specifyStep, setSpecifyStep] = useState(0);
