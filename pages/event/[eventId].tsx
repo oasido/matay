@@ -19,8 +19,15 @@ const EventDetails = ({ event }) => {
     }
   };
 
-  const eventData = parseEvent(event);
-  console.log(eventData);
+  const [availability, setAvailability] = useState(() => {
+    const initialArray = [];
+    dates.forEach((date) => {
+      initialArray.push(0);
+    });
+
+    return initialArray;
+  });
+
 
   return (
     <>

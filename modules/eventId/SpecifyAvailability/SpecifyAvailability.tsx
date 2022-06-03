@@ -7,7 +7,17 @@ const SpecifyAvailability = (props) => {
   return (
     <>
       <Header eventData={eventData} />
-      <DateRow event={eventData} />
+      {dates.map((date, i) => {
+        return (
+          <DateRow
+            date={date}
+            availability={availability}
+            setAvailability={setAvailability}
+            i={i}
+            key={i}
+          />
+        );
+      })}
     </>
   );
 };
