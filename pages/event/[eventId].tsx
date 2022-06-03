@@ -77,18 +77,29 @@ const EventDetails = ({ event }) => {
 export const getServerSideProps = async ({ query, res }) => {
   await dbConnect();
 
-  // Working CREATE
-  // const event = await Event.create({
+  // const eventAA = await Event.create({
+  //   type: 'event',
   //   title: 'Event title',
   //   description: 'Event description',
-  //   dates: [new Date()],
-  //   location: '',
+  //   dates: [new Date(), new Date(), new Date()],
+  //   location: 'amsterdam',
   //   createdBy: {
   //     name: 'ofek',
   //     email: 'ofek@gmail.com',
   //   },
   // });
 
+  // const participant = await Participant.create({
+  //   eventId: query.eventId,
+  //   when: [
+  //     { availability: 1, date: new Date(), time: '12:00' },
+  //     { availability: 1, date: new Date(), time: '14:00' },
+  //   ],
+  //   createdBy: {
+  //     name: 'Guus Meeuwis',
+  //     email: 'guus@gmail.com',
+  //   },
+  // });
 
   const event = await Event.findById(query.eventId);
 
