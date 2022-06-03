@@ -55,6 +55,15 @@ const EventDetails = ({ event }) => {
     return initialArray;
   });
 
+  const handleFieldSetError = (field: string) => {
+    form.errors[field]
+      ? setError((prev) => {
+          return { ...prev, [field]: { show: true, msg: form.errors[field] } };
+        })
+      : setError((prev) => {
+          return { ...prev, [field]: { show: false, msg: null } };
+        });
+  };
 
   const props = {
     eventData,
