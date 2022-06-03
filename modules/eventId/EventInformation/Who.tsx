@@ -10,7 +10,7 @@ const Who = ({ participants }) => {
           <SimpleGrid cols={2} breakpoints={[{ maxWidth: 660, cols: 1 }]}>
             {participants.map((participant, i) => {
               return (
-                <div className="flex items-center my-5" key={i}>
+                <div className="flex items-center my-1" key={i}>
                   <div className="w-11 h-11 rounded-md bg-green-500 ml-2 flex justify-center items-center text-3xl text-white">
                     <TiTick />
                   </div>
