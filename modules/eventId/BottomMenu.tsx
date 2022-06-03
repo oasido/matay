@@ -15,6 +15,20 @@ interface Props {
 const BottomMenu = (props: Props) => {
   const { specifyStep, setSpecifyStep, availability, handleFieldSetError, form } = props;
 
+  const router = useRouter();
+  const eventId = router.query.eventId;
+
+  const saveAvailability = async (availability: number[]) => {
+    handleFieldSetError('name');
+    handleFieldSetError('email');
+
+    const { name, email } = form.values;
+    const response = await axios.post(`/api/events/send-availability/${eventId}`, {
+      availability,
+      name,
+      email,
+    });
+  };
     switch (step) {
       case 0:
         setSpecifyStep(1);
