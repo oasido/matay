@@ -63,7 +63,7 @@ const CreateEvent = () => {
     email: { show: false, msg: form.errors.email },
   });
 
-  const handleFieldSetError = (field) => {
+  const handleFieldSetError = (field: string) => {
     form.errors[field]
       ? setError((prev) => {
           return { ...prev, [field]: { show: true, msg: form.errors[field] } };
