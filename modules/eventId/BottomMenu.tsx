@@ -61,17 +61,19 @@ const BottomMenu = (props: Props) => {
       <div className="site-width bg-white fixed left-0 right-0 bottom-0 mx-auto">
         <div className="p-5 border-t-2 border-x-2">
           <Center className="gap-2">
-            <Button size="lg" onClick={() => handleClick(specifyStep)}>
-              ציין זמינות
-            </Button>
-            {specifyStep === 0 && (
+            {specifyStep < 3 && (
+              <Button size="lg" onClick={() => handleClick(specifyStep)}>
+                {specifyStep === 2 ? 'סיום' : 'ציין זמינות'}
+              </Button>
+            )}
+            {(specifyStep === 0 || specifyStep === 3) && (
               <Link href="/">
                 <Button size="lg" color="gray">
                   חזרה לאתר
                 </Button>
               </Link>
             )}
-            {specifyStep >= 1 && (
+            {(specifyStep >= 1 || specifyStep > 4) && (
               <Button size="lg" color="gray" onClick={() => setSpecifyStep((prev) => prev - 1)}>
                 חזרה
               </Button>
