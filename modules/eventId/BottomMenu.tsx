@@ -7,6 +7,9 @@ import { useEffect } from 'react';
 interface Props {
   specifyStep: number;
   setSpecifyStep: Function;
+  availability: number[];
+  handleFieldSetError: Function;
+  form: any;
 }
 
 const BottomMenu = ({ specifyStep, setSpecifyStep }: Props) => {
