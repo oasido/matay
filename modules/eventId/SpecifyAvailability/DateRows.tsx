@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { TiCancel, TiMinus, TiTick } from 'react-icons/ti';
 
 const DateRow = ({ event }) => {
