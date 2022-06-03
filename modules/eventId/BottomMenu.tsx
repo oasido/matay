@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 interface Props {
-  specifyStep: Number;
+  specifyStep: number;
   setSpecifyStep: Function;
 }
 
