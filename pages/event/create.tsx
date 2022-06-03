@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Navbar from '../../modules/Navbar';
+import Logo from '../../modules/Logo';
 import StepsButton from '../../modules/StepsButton';
 import ProgressBar from './../../modules/ProgressBar';
 import WhatComponent from './../../modules/WhatComponent';
@@ -156,8 +156,8 @@ const CreateEvent = () => {
 
   return (
     <>
-      <Navbar />
       <ProgressBar {...props} />
+      <Logo />
       <div className="mx-auto text-center">
         <h1 className="font-medium text-2xl my-5">{pageTitle.title}</h1>
 

@@ -1,13 +1,12 @@
-import Link from 'next/link';
 import ScheduleItem from './../modules/ScheduleItem';
 import ProgressBar from './../modules/ProgressBar';
-import Navbar from '../modules/Navbar';
+import Logo from '../modules/Logo';
 
 const Home = () => {
   return (
     <>
-      <Navbar />
       <ProgressBar step={-1} type={'start'} />
+      <Logo />
       <div className="mx-auto text-center">
         <h1 className="font-medium text-2xl my-5">מה תרצו לקבוע?</h1>
 

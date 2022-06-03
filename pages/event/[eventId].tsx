@@ -1,7 +1,7 @@
 import dbConnect from './../../lib/dbConnect';
 import Event from './../../models/Event';
 import Participant from './../../models/Participant';
-import Navbar from '../../modules/Navbar';
+import Logo from '../../modules/Logo';
 import BottomMenu from './../../modules/eventId/BottomMenu';
 import Header from '../../modules/eventId/EventInformation/Header';
 import SpecifyAvailability from './../../modules/eventId/SpecifyAvailability';
@@ -24,7 +24,7 @@ const EventDetails = ({ event }) => {
 
   return (
     <>
-      <Navbar />
+      <Logo />
 
       <div className="site-width mx-auto">
         <div className="border-2 mt-4 min-h-[100vh]">
