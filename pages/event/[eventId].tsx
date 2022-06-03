@@ -56,17 +56,31 @@ const EventDetails = ({ event }) => {
   });
 
 
+  const props = {
+    eventData,
+    form,
+    error,
+    setError,
+    specifyStep,
+    setSpecifyStep,
+    availability,
+    setAvailability,
+    dates,
+    handleFieldSetError,
+  };
+
   return (
     <>
       <Logo />
 
       <div className="site-width mx-auto">
         <div className="border-2 mt-4 min-h-[100vh]">
-          <Header eventData={eventData} />
+          <Header {...props} />
           <div className="mx-10">
-            {specifyStep === 0 && <EventInformation eventData={eventData} />}
-            {specifyStep === 1 && <SpecifyAvailability eventData={eventData} />}
-            <BottomMenu specifyStep={specifyStep} setSpecifyStep={setSpecifyStep} />
+            {specifyStep === 0 && <EventInformation {...props} />}
+            {specifyStep === 1 && <SpecifyAvailability {...props} />}
+            {specifyStep === 2 && <WhoResponded {...props} />}
+            <BottomMenu {...props} />
           </div>
         </div>
       </div>
