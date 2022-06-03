@@ -11,8 +11,23 @@ import { useState } from 'react';
 import { z } from 'zod';
 import { useForm, zodResolver } from '@mantine/form';
 
+const whoRespondedSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(1, { message: 'שם אינו יכול להיות ריק' })
+    .max(50, { message: 'השם שלך ארוך מהרגיל!' }),
+  email: z.string().email({ message: 'כתובת אימייל לא תקינה' }).trim(),
+});
 
 const EventDetails = ({ event }) => {
+  const form = useForm({
+    schema: zodResolver(whoRespondedSchema),
+    initialValues: {
+      name: '',
+      email: '',
+    },
+  });
   const [specifyStep, setSpecifyStep] = useState(0);
 
   const parseEvent = (event) => {
