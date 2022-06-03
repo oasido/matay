@@ -35,6 +35,7 @@ const BottomMenu = (props: Props) => {
     form.validateField('email');
   }, [form.values.name, form.values.email]);
 
+  const handleClick = (step: number) => {
     switch (step) {
       case 0:
         setSpecifyStep(1);
