@@ -41,10 +41,9 @@ const registerParticipant = async (req, res) => {
       },
     });
 
-    res.send(event);
+    res.status(200).send({ success: true, msg: 'Participant registered successfully.' });
   } catch (error) {
-    console.error(error);
-    res.send(error.msg);
+    res.status(500).send({ success: false, msg: 'An error has occurred.' });
   }
 };
 
