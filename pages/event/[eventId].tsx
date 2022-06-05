@@ -48,8 +48,6 @@ const EventDetails = ({ event, participants }) => {
 
   const eventData = parseModel(event);
 
-  const dates = ['10-10-22', '11-11-23', '12-1-24', '22-22-22'];
-
   const [availability, setAvailability] = useState(() => {
     const initialArray = [];
     dates.forEach((date) => {
@@ -80,7 +78,6 @@ const EventDetails = ({ event, participants }) => {
     setSpecifyStep,
     availability,
     setAvailability,
-    dates,
     handleFieldSetError,
     serverResponse,
     setServerResponse,
