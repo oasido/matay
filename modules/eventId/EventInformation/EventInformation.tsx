@@ -3,13 +3,13 @@ import Who from './Who';
 import Hr from '../Hr';
 
 const EventInformation = (props) => {
-  const { eventData } = props;
+  const { eventData, participantsData } = props;
 
   return (
     <>
       <What eventData={eventData} />
       <Hr />
-      <Who participants={[1, 1, 1, 1]} />
+      <Who participantsData={participantsData} />
       <Hr />
     </>
   );

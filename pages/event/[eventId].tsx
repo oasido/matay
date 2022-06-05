@@ -20,7 +20,7 @@ const whoRespondedSchema = z.object({
   email: z.string().email({ message: 'כתובת אימייל לא תקינה' }).trim(),
 });
 
-const EventDetails = ({ event }) => {
+const EventDetails = ({ event, participants }) => {
   const form = useForm({
     schema: zodResolver(whoRespondedSchema),
     initialValues: {
@@ -67,6 +67,8 @@ const EventDetails = ({ event }) => {
         });
   };
 
+  const participantsData = parseModel(participants);
+
   const props = {
     eventData,
     form,
@@ -78,6 +80,7 @@ const EventDetails = ({ event }) => {
     setAvailability,
     dates,
     handleFieldSetError,
+    participantsData,
   };
 
   return (
@@ -145,9 +148,16 @@ export const getServerSideProps = async ({ query, res }) => {
     return { props: { event: eventData } };
   }
 
+  // get all participants
+
+  const participants = await Participant.find({ eventId: query.eventId });
+
+  const participantsData = stringifyModel(participants);
+
   return {
     props: {
       event: eventData,
+      participants: participantsData,
     },
   };
 };
