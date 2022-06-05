@@ -50,7 +50,7 @@ const EventDetails = ({ event, participants }) => {
 
   const [availability, setAvailability] = useState(() => {
     const initialArray = [];
-    dates.forEach((date) => {
+    eventData.dates.forEach((date) => {
       initialArray.push(0);
     });
 
@@ -130,6 +130,8 @@ export const getServerSideProps = async ({ query, res }) => {
   //     email: 'guus@gmail.com',
   //   },
   // });
+
+  //get event information
 
   const event = await Event.findById(query.eventId);
 
