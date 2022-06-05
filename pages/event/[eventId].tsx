@@ -36,7 +36,7 @@ const EventDetails = ({ event, participants }) => {
   });
 
   const [specifyStep, setSpecifyStep] = useState(0);
-  const [serverResponse, setServerResponse] = useState(200);
+  const [serverResponse, setServerResponse] = useState({ status: 200 });
 
   const parseModel = (model: string) => {
     try {
