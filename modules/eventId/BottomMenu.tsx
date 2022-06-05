@@ -10,10 +10,19 @@ interface Props {
   availability: number[];
   handleFieldSetError: Function;
   form: any;
+  serverResponse: object;
+  setServerResponse: Function;
 }
 
 const BottomMenu = (props: Props) => {
-  const { specifyStep, setSpecifyStep, availability, handleFieldSetError, form } = props;
+  const {
+    specifyStep,
+    setSpecifyStep,
+    availability,
+    handleFieldSetError,
+    form,
+    setServerResponse,
+  } = props;
 
   const router = useRouter();
   const eventId = router.query.eventId;
@@ -28,6 +37,7 @@ const BottomMenu = (props: Props) => {
       name,
       email,
     });
+    setServerResponse(response);
   };
 
   useEffect(() => {
