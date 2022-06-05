@@ -56,9 +56,6 @@ const BottomMenu = (props: Props) => {
       case 2:
         form.validate();
         saveAvailability(availability);
-
-        console.log(form.values);
-
         Object.keys(form.errors).length === 0 && setSpecifyStep(3);
 
       default:
