@@ -2,12 +2,12 @@ import DateRow from './DateRows';
 import Header from './Header';
 
 const SpecifyAvailability = (props) => {
-  const { eventData, availability, setAvailability, dates } = props;
+  const { eventData, availability, setAvailability } = props;
 
   return (
     <>
       <Header eventData={eventData} />
-      {dates.map((date, i) => {
+      {eventData.dates.map((date, i) => {
         return (
           <DateRow
             date={date}
