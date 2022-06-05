@@ -1,4 +1,6 @@
 import { TiCancel, TiMinus, TiTick } from 'react-icons/ti';
+import { parseISO, format } from 'date-fns';
+import { he } from 'date-fns/locale';
 
 const DateRow = ({ date, availability, setAvailability, i }) => {
   const handleAvailabilityClick = (i, clickedOn) => {
@@ -9,10 +11,12 @@ const DateRow = ({ date, availability, setAvailability, i }) => {
     });
   };
 
+  const dateFormatted = format(parseISO(date), 'dd/MM/yyyy - EEEE', { locale: he });
+
   return (
     <div className="flex items-center my-5 group">
       <div className="flex-1">
-        <h3 className="font-medium">יום ראשון, 25 יוני</h3>
+        <h3 className="font-medium">{dateFormatted}</h3>
       </div>
 
       <div
