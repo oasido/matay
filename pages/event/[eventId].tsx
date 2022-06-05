@@ -10,6 +10,7 @@ import EventInformation from '../../modules/eventId/EventInformation';
 import { useState } from 'react';
 import { z } from 'zod';
 import { useForm, zodResolver } from '@mantine/form';
+import SuccessOrFail from '../../modules/eventId/SpecifyAvailability/SuccessOrFail';
 
 const whoRespondedSchema = z.object({
   name: z
@@ -35,6 +36,7 @@ const EventDetails = ({ event, participants }) => {
   });
 
   const [specifyStep, setSpecifyStep] = useState(0);
+  const [serverResponse, setServerResponse] = useState(200);
 
   const parseModel = (model: string) => {
     try {
@@ -80,6 +82,8 @@ const EventDetails = ({ event, participants }) => {
     setAvailability,
     dates,
     handleFieldSetError,
+    serverResponse,
+    setServerResponse,
     participantsData,
   };
 
@@ -94,6 +98,7 @@ const EventDetails = ({ event, participants }) => {
             {specifyStep === 0 && <EventInformation {...props} />}
             {specifyStep === 1 && <SpecifyAvailability {...props} />}
             {specifyStep === 2 && <WhoResponded {...props} />}
+            {specifyStep === 3 && <SuccessOrFail {...props} />}
             <BottomMenu {...props} />
           </div>
         </div>
