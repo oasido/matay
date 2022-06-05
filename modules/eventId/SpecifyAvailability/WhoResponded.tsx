@@ -7,8 +7,9 @@ const WhoResponded = (props) => {
   return (
     <>
       <div className="my-8 text-center">
-        <h2 className="text-2xl font-medium my-5">האם את/ה זמינ/ה?</h2>
-        <p>masheo aher</p>
+        <h2 className="text-2xl font-medium my-5">עם מי לנו הכבוד?</h2>
+        <p>כתבו לנו את השם וכתובת המייל שלכם, כך כולם יוכלו לדעת שנרשמתם.</p>
+        <p>כתובת המייל שלכם לא תוצג.</p>
       </div>
       <Input
         size="lg"
