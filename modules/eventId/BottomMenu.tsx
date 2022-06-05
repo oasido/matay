@@ -80,7 +80,7 @@ const BottomMenu = (props: Props) => {
                 </Button>
               </Link>
             )}
-            {(specifyStep >= 1 || specifyStep > 4) && (
+            {specifyStep >= 1 && specifyStep < 3 && (
               <Button size="lg" color="gray" onClick={() => setSpecifyStep((prev) => prev - 1)}>
                 חזרה
               </Button>
