@@ -1,8 +1,12 @@
+import dbConnect from '../../../../lib/dbConnect';
 import Event from '../../../../models/Event';
 import Participant from '../../../../models/Participant';
 
 const registerParticipant = async (req, res) => {
   try {
+
+    dbConnect();
+
     const { eventId } = req.query;
     const { availability, name, email } = req.body;
 
