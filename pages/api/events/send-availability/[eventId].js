@@ -4,6 +4,10 @@ import Participant from '../../../../models/Participant';
 
 const registerParticipant = async (req, res) => {
   try {
+    if (req.method !== 'POST') {
+      res.status(405).send({ message: 'Only POST requests allowed' });
+      return;
+    }
 
     dbConnect();
 
