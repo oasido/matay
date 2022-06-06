@@ -153,6 +153,8 @@ const CreateEvent = () => {
   const [submitStatus, setSubmitStatus] = useLocalStorage('submitStatus', null);
   const [eventId, setEventId] = useLocalStorage('eventId', null);
 
+  // console.log(eventId);
+
   const handleSubmit = async () => {
     const { values } = form;
     const response = await axios.post('/api/events/create', { type, values });
@@ -194,7 +196,7 @@ const CreateEvent = () => {
 export const getServerSideProps = ({ query, res }) => {
   const { type } = query;
 
-  if (!type.match(/^(food|business|activity|together|remote|party|other)$/)) {
+  if (!type || !type.match(/^(food|business|activity|together|remote|party|other)$/)) {
     res.statusCode = 301;
     res.setHeader('location', '/');
     res.end();
