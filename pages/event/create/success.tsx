@@ -27,12 +27,12 @@ const Success = () => {
               <Input
                 size="lg"
                 classNames={{ input: 'font-medium' }}
-                value={`${URL}/event/${JSON.parse(eventId)}`}
+                value={`${URL}/event/${eventId.at(-1)}`}
                 readOnly
               />
               <Button
                 color={clipboard.copied ? 'teal' : 'blue'}
-                onClick={() => clipboard.copy(`${URL}/event/${JSON.parse(eventId)}`)}
+                onClick={() => clipboard.copy(`${URL}/event/${eventId.at(-1)}`)}
                 size="lg"
                 className="mt-5"
               >
