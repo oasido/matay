@@ -6,11 +6,10 @@ import { useEffect, useState } from 'react';
 const Success = () => {
   const URL = process.env.NEXT_PUBLIC_URL;
 
-  const [submitStatus, setSubmitStatus] = useState(null);
   const [eventId, setEventId] = useState(null);
+
   useEffect(() => {
-    setSubmitStatus(localStorage.getItem('submitStatus'));
-    setEventId(localStorage.getItem('eventId'));
+    setEventId(JSON.parse(JSON.parse(localStorage.getItem('eventId'))));
   }, []);
 
   const clipboard = useClipboard({ timeout: 500 });
