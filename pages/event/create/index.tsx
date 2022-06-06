@@ -150,10 +150,7 @@ const CreateEvent = () => {
       });
   }, [step]);
 
-  const [submitStatus, setSubmitStatus] = useLocalStorage('submitStatus', null);
-  const [eventId, setEventId] = useLocalStorage('eventId', null);
-
-  // console.log(eventId);
+  const [eventId, setEventId] = useLocalStorage('eventId', '[]');
 
   const handleSubmit = async () => {
     const { values } = form;
