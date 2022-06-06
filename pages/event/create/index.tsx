@@ -157,6 +157,8 @@ const CreateEvent = () => {
 
   const handleSubmit = async () => {
     const { values } = form;
+
+    if (!form.errors || Object.keys(form.errors).length === 0) {
     const response = await axios.post('/api/events/create', { type, values });
     if (response.status === 200) {
       setSubmitStatus(200);

@@ -32,12 +32,14 @@ const BottomMenu = (props: Props) => {
     handleFieldSetError('email');
 
     const { name, email } = form.values;
-    const response = await axios.post(`/api/events/send-availability/${eventId}`, {
-      availability,
-      name,
-      email,
-    });
-    setServerResponse(response);
+    if (!form.errors || Object.keys(form.errors).length === 0) {
+      const response = await axios.post(`/api/events/send-availability/${eventId}`, {
+        availability,
+        name,
+        email,
+      });
+      setServerResponse(response);
+    }
   };
 
   useEffect(() => {
