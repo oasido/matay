@@ -156,14 +156,15 @@ const CreateEvent = () => {
     const { values } = form;
 
     if (!form.errors || Object.keys(form.errors).length === 0) {
-    const response = await axios.post('/api/events/create', { type, values });
-    if (response.status === 200) {
-      setSubmitStatus(200);
-      setEventId(response.data.eventId);
-      router.push('/event/create/success');
-    } else {
-      setSubmitStatus(response.status);
-      router.push('/event/create/fail');
+      const response = await axios.post('/api/events/create', { type, values });
+
+      if (response.status === 200) {
+        const parsedEventIds = JSON.parse(eventId);
+        setEventId(JSON.stringify([...parsedEventIds, response.data.eventId]));
+        router.push('/event/create/success');
+      } else {
+        router.push('/event/create/fail');
+      }
     }
   };
 
