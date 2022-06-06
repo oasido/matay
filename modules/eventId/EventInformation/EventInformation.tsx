@@ -1,5 +1,6 @@
 import What from './What';
 import Who from './Who';
+import When from './When';
 import Hr from '../Hr';
 
 const EventInformation = (props) => {
@@ -11,6 +12,8 @@ const EventInformation = (props) => {
       <Hr />
       <Who participantsData={participantsData} />
       <Hr />
+      <When eventData={eventData} participantsData={participantsData} />
+      {/* <Hr /> */}
     </>
   );
 };
