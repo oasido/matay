@@ -104,6 +104,8 @@ const EventDetails = ({ event, participants }) => {
   );
 };
 
+export default EventDetails;
+
 export const getServerSideProps = async ({ query, res }) => {
   await dbConnect();
 
@@ -165,5 +167,3 @@ export const getServerSideProps = async ({ query, res }) => {
     },
   };
 };
-
-export default EventDetails;

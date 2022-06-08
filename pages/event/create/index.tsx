@@ -193,8 +193,7 @@ const CreateEvent = () => {
   );
 };
 
-export const getServerSideProps = ({ query, res }) => {
-  const { type } = query;
+export default CreateEvent;
 
   if (!type || !type.match(/^(food|business|activity|together|remote|party|other)$/)) {
     res.statusCode = 301;
@@ -206,4 +205,5 @@ export const getServerSideProps = ({ query, res }) => {
   return { props: { data: null } };
 };
 
-export default CreateEvent;
+//   return { props: { data: null } };
+// };
