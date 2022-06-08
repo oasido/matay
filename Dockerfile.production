@@ -14,7 +14,6 @@ COPY /styles ./styles
 COPY /lib ./lib
 COPY /models ./models
 
-RUN npm i -g next
-RUN next build
+RUN npm run build
 
-CMD ["next", "start"]
+CMD ["npm", "run", "start"]
