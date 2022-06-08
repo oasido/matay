@@ -1,24 +1,19 @@
-import { AppShell } from '@mantine/core';
+import { AppProps } from 'next/app';
 import '../styles/globals.css';
 import rtlPlugin from 'stylis-plugin-rtl';
 import { MantineProvider } from '@mantine/core';
 
-function MyApp({ Component, pageProps }) {
+export default function App(props: AppProps) {
+  const { Component, pageProps } = props;
+
   return (
-    <>
-      <AppShell padding={0}>
-          <MantineProvider
-            withGlobalStyles
-            withNormalizeCSS
-            theme={{ dir: 'rtl' }}
-            emotionOptions={{ key: 'rtl', stylisPlugins: [rtlPlugin] }}
-          >
-            <Component {...pageProps} />
-          </MantineProvider>
-      </AppShell>
-      {/* links: { link: string; label: string }[]; */}
-    </>
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{ dir: 'rtl' }}
+      emotionOptions={{ key: 'rtl', stylisPlugins: [rtlPlugin] }}
+    >
+      <Component {...pageProps} />
+    </MantineProvider>
   );
 }
-
-export default MyApp;
