@@ -1,7 +1,7 @@
 import { Center, Collapse } from '@mantine/core';
 import { Calendar } from '@mantine/dates';
 import { useViewportSize } from '@mantine/hooks';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import 'dayjs/locale/he';
 
 const WhenComponent = (props) => {

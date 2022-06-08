@@ -26,8 +26,6 @@ const When = ({ eventData, participantsData }) => {
     return (currentValue * 100) / participants.length;
   };
 
-  console.log(participantsData);
-
   return (
     <>
       {participantsData.length > 0 && (
