@@ -5,6 +5,8 @@ services:
     image: matay-app-production
     build:
       dockerfile: Dockerfile.production
+    env_file:
+      - .env.local
     ports:
       - 3000:3000
     depends_on:
