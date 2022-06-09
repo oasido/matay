@@ -19,7 +19,7 @@ Everyone can create an event, what does that mean? Let's say you're in a class o
 With Matay (translates to “when” in Hebrew) you can easily create an event, and send out the link to whoever.
 
 - Easy way to create an event, no user account needed.
-- Intuitivly see user responses, with their availability status - which can be either ✅ available, ❌ unavailable or 🟧 might be available.
+- Intuitively see user responses, with their availability status – which can be either ✅ available, ❌ unavailable or 🟧 might be available.
 - Progress bar for each date suggested, calculated with the user responses.
 - Ability to show the event IDs you've created, this was achieved using local storage.
 - Using “zod” for form schema validations.
@@ -38,8 +38,7 @@ $ docker compose up --build --force-recreate
 $ docker compose -f docker-compose.production.yml up -d
 ```
 
-Matay uses MongoDB, you would have to connect to port `27018` with your favorite database management app to set up the first user (the port is purposely not 27017).
-Only administrators can create users for protection.
+The database port (using `27018`) is purposely not exposed (in `docker-compose.yml`)
 
 ## Might to-do list
 
