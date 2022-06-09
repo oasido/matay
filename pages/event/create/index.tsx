@@ -195,15 +195,17 @@ const CreateEvent = () => {
 
 export default CreateEvent;
 
+export const getServerSideProps = ({ query }) => {
+  const { type } = query;
+
   if (!type || !type.match(/^(food|business|activity|together|remote|party|other)$/)) {
-    res.statusCode = 301;
-    res.setHeader('location', '/');
-    res.end();
-    return { props: { data: null } };
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
   }
 
   return { props: { data: null } };
 };
-
-//   return { props: { data: null } };
-// };
