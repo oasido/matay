@@ -9,7 +9,9 @@ const Success = () => {
   const [eventId, setEventId] = useState(null);
 
   useEffect(() => {
-    setEventId(JSON.parse(JSON.parse(localStorage.getItem('eventId'))));
+    if (typeof window !== 'undefined') {
+      setEventId(JSON.parse(JSON.parse(localStorage.getItem('eventId'))));
+    }
   }, []);
 
   const clipboard = useClipboard({ timeout: 500 });
