@@ -109,30 +109,6 @@ export default EventDetails;
 export const getServerSideProps = async ({ query, res }) => {
   await dbConnect();
 
-  // const eventAA = await Event.create({
-  //   type: 'event',
-  //   title: 'Event title',
-  //   description: 'Event description',
-  //   dates: [new Date(), new Date(), new Date()],
-  //   location: 'amsterdam',
-  //   createdBy: {
-  //     name: 'ofek',
-  //     email: 'ofek@gmail.com',
-  //   },
-  // });
-
-  // const participant = await Participant.create({
-  //   eventId: query.eventId,
-  //   when: [
-  //     { availability: 1, date: new Date(), time: '12:00' },
-  //     { availability: 1, date: new Date(), time: '14:00' },
-  //   ],
-  //   createdBy: {
-  //     name: 'Guus Meeuwis',
-  //     email: 'guus@gmail.com',
-  //   },
-  // });
-
   //get event information
 
   const event = await Event.findById(query.eventId);
