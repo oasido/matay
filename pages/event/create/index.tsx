@@ -160,10 +160,10 @@ const CreateEvent = () => {
 
       if (response.status === 200) {
         const parsedEventIds = JSON.parse(eventId);
-        setEventId(JSON.stringify([...parsedEventIds, response.data.eventId]));
-        router.push('/event/create/success');
+        await setEventId(JSON.stringify([...parsedEventIds, response.data.eventId]));
+        await router.push('/event/create/success');
       } else {
-        router.push('/event/create/fail');
+        await router.push('/event/create/fail');
       }
     }
   };
