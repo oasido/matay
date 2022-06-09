@@ -1,12 +1,9 @@
 import Logo from '../modules/Logo';
 import { useState, useEffect } from 'react';
 import { Table } from '@mantine/core';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const Scheduled = () => {
-  const router = useRouter();
-
   const [eventId, setEventId] = useState(null);
 
   useEffect(() => {
