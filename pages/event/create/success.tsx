@@ -4,7 +4,8 @@ import { useClipboard } from '@mantine/hooks';
 import { useEffect, useState } from 'react';
 
 const Success = () => {
-  const URL = process.env.NEXT_PUBLIC_URL;
+  const clipboard = useClipboard({ timeout: 500 });
+  const URL = process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
 
   const [eventId, setEventId] = useState(null);
 
@@ -13,8 +14,6 @@ const Success = () => {
       setEventId(JSON.parse(JSON.parse(localStorage.getItem('eventId'))));
     }
   }, []);
-
-  const clipboard = useClipboard({ timeout: 500 });
 
   return (
     <>
