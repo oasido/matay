@@ -22,6 +22,7 @@ With Matay (translates to “when” in Hebrew) you can easily create an event, 
 - Intuitivly see user responses, with their availability status - which can be either ✅ available, ❌ unavailable or 🟧 might be available.
 - Progress bar for each date suggested, calculated with the user responses.
 - Ability to show the event IDs you've created, this was achieved using local storage.
+- Using “zod” for form schema validations.
 
 ## Usage
 
