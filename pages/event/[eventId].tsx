@@ -124,10 +124,12 @@ export const getServerSideProps = async ({ query, res }) => {
   const eventData = stringifyModel(event);
 
   if (eventData === 'NotFound') {
-    res.statusCode = 301;
-    res.setHeader('location', '/');
-    res.end();
-    return { props: { event: eventData } };
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
   }
 
   // get all participants
