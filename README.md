@@ -7,7 +7,7 @@
 
 Matay is a "reversed-engineered" version of the Dutch website datumprikker.
 
-### [Live demo](https://matay.ofekasido.xyz/)
+### [Live demo](https://youtu.be/f0Ee8tCxW24)
 
 </div>
 
